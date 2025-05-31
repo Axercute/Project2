@@ -1,0 +1,70 @@
+/* HomePage.css */
+
+.homepage {
+  font-family: Arial, sans-serif;
+  padding-top: 80px; /* Adjust based on your fixed nav height */
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+.hero {
+  text-align: center;
+  background: linear-gradient(135deg, #7b4397, #dc2430);
+  color: white;
+  padding: 60px 20px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.feature-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.feature-card h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.feature-card p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.feature-card button {
+  margin-top: auto;
+  padding: 10px 20px;
+  background-color: #ff5763;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feature-card button:hover {
+  background-color: #a31b24;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: #ddd;
+  margin-top: 40px;
+}
