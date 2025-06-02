@@ -20,7 +20,7 @@ const NavBar = () => {
 
     <li>
     <Link path to ="/singerSearch">
-    Singer Search
+    Singer Search (Beta)
     </Link>
     </li>
     

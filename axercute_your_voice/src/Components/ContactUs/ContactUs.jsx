@@ -4,22 +4,22 @@ const ContactUs = () => {
   return (
     <div className="contact-page">
       <h1>📬 Get in Touch</h1>
-      <p>We’d love to hear from you — whether you're a fan, a singer, or just curious about StreetStage.</p>
+      <p>We’d love to hear from you — whether you're a fan, a singer, or just curious about Axercute your voice</p>
 
       <div className="contact-info">
         <div className="contact-block">
           <h2>📧 Email Us</h2>
-          <p>support@streetstage.app</p>
+          <p>axercute@gmail.com</p>
         </div>
 
         <div className="contact-block">
           <h2>📞 Call Us</h2>
-          <p>+1 (555) 123-4567</p>
+          <p>+65 999</p>
         </div>
 
         <div className="contact-block">
           <h2>📍 Visit Us</h2>
-          <p>123 Music Lane, Melody City, World Stage 40400</p>
+          <p>General Assembly Block 420 #19-420</p>
         </div>
 
         <div className="contact-block">

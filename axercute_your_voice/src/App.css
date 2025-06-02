@@ -39,3 +39,7 @@
 .read-the-docs {
   color: #888;
 }
+
+.app-content {
+  padding-top: 80px; /* adjust based on your nav height */
+}

@@ -1,0 +1,41 @@
+/* Container for each card */
+.SingerLogin {
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin: 30px auto;
+  max-width: 640px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.SingerLogin:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Song title styling */
+.SingerLogin .song-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e3c72;
+}
+
+/* Singer name styling */
+.SingerLogin .singer-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2e8b57;
+}
+
+/* Global font and spacing fix */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fa;
+  padding-top: 80px; /* if nav is fixed */
+  margin: 0;
+}
