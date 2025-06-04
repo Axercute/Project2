@@ -8,9 +8,10 @@ import ContactUs from './Components/ContactUs/ContactUs'
 import SongSearch from './Components/SongSearch/SongSearch'
 import SingerLogin from './Components/SingerLogin/SingerLogin'
 import FetchSong from './FetchSong'
+import SongStorage from './SongStorage'
 
 function App() {
-
+SongStorage()
 const [SongSearchState, SetSongSearchState] = useState({songname:"",singername: "",lyrics: ""});
 const [SongList,SetSongList]=useState([{songname:"x",singername:"xx",lyrics:"xxx"}])
 

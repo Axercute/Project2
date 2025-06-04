@@ -19,7 +19,7 @@ const ContactUs = () => {
 
         <div className="contact-block">
           <h2>📍 Visit Us</h2>
-          <p>General Assembly Block 420 #19-420</p>
+          <p>Ohio Skibidi Block Dop Dop #GYATTTT</p>
         </div>
 
         <div className="contact-block">

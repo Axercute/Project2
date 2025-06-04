@@ -12,8 +12,7 @@ const SingerLogin =({SongList})=>{
         <div key={index} className="SingerLogin">
             <div className="song-name">{element.songname}</div>
             <div className="singer-name">{element.singername}</div>
-            <button>Reveal Lyrics</button>
-            <div className="singer-name">{element.singername}</div>
+            <button>View Whole Song</button>
         </div>
     ))}
     </>)
