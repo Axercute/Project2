@@ -7,11 +7,13 @@ const SingerLogin =({SongList})=>{
     console.log("SongList updated:", SongList);
     }, [SongList]);
 
+    
     return (<>
+    <h1>Picked songs</h1>
     {SongList.map((element,index)=>(
         <div key={index} className="SingerLogin">
-            <div className="song-name">{element.songname}</div>
-            <div className="singer-name">{element.singername}</div>
+            <div className="song-name">{element.fields.songname}</div>
+            <div className="singer-name">{element.fields.singername}</div>
             <button>View Whole Song</button>
         </div>
     ))}
