@@ -7,18 +7,19 @@ import HomePage from './Components/HomePage/HomePage'
 import ContactUs from './Components/ContactUs/ContactUs'
 import SongSearch from './Components/SongSearch/SongSearch'
 import SingerLogin from './Components/SingerLogin/SingerLogin'
-import FetchSong from './FetchSong'
-import {showSong,createSong} from './SongStorage'
+import fetchLyricsOVH from './FetchLyricsOVH'
+import {showSong,createSong,deleteSong} from './SongStorage'
+import SongDetail from './Components/SongDetail/SongDetail'
 
 function App() {
-//render the showSong first
-useEffect(() => {
+//render the songList first
+
   const fetchData = async () => {
     const updatedList = await showSong();
     SetSongList(updatedList);
   };
-  fetchData();
-}, []);
+
+useEffect(() => {fetchData()}, []);
 
 const [SongSearchState, SetSongSearchState] = useState({songname:"",singername: "",lyrics: ""});
 const [SongList,SetSongList]=useState([])
@@ -27,12 +28,14 @@ const [SongList,SetSongList]=useState([])
 const [SongSearchChangeState,SetSongSearchChangeState]=useState({songname:"",singername:"",lyrics:""});
 const handleChange=(event)=>{
   SetSongSearchChangeState((prevValue)=>({...prevValue,[event.target.name]:event.target.value}))
-  console.log(SongSearchChangeState)
+  console.log("handleChange",SongSearchChangeState)
 }
 
-const handleSubmit= async (event)=>{
-  event.preventDefault();
-  const FetchLyrics = await FetchSong(SongSearchChangeState)
+const [SongDeleteState,SetSongDeleteState] = useState();
+
+const handleSubmit= async ()=>{
+
+  const FetchLyrics = await fetchLyricsOVH (SongSearchChangeState)
   SetSongSearchChangeState({songname:"",singername:"",lyrics:""})
   console.log(FetchLyrics)
   SetSongSearchState({
@@ -43,14 +46,19 @@ const handleSubmit= async (event)=>{
   return SongSearchState
 }
 
-const handleSubmit2=async (SongSearchState)=>{
+const handleCreateSong=async (SongSearchState)=>{
   await createSong(SongSearchState) //using the create function
-  const updatedList = await showSong(); //using the showSong function
-  SetSongList(updatedList); //render
+  fetchData() //using the render function
   }
 
+const handleDelete = async (renderDetailsId)=>{
+  console.log("value passed for deletion",renderDetailsId)
+  await deleteSong(renderDetailsId)
+  fetchData() //render function
+}
+
 useEffect(()=>{console.log("handleSubmit",SongSearchState)},[SongSearchState])
-useEffect(()=>{FetchSong()},[SongSearchState])
+useEffect(()=>{fetchLyricsOVH()},[SongSearchState])
 
 useEffect(() => {
 console.log("SongList updated:", SongList);
@@ -72,7 +80,7 @@ console.log("SongList updated:", SongList);
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       SongSearchState={SongSearchState}
-      handleSubmit2={handleSubmit2}
+      handleCreateSong={handleCreateSong}
       />}
       />
 
@@ -81,6 +89,15 @@ console.log("SongList updated:", SongList);
       SongList={SongList}
       />}
       />
+
+      <Route path ="/singerLogin/:songName"
+      element={<SongDetail
+      SongList={SongList}
+      handleDelete={handleDelete}
+      />
+      }
+      />
+      
 
       <Route path ="/contactUs"
       element={<ContactUs/>}

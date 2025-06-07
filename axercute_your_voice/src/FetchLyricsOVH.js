@@ -1,5 +1,5 @@
 
-const FetchSong = async (SongSearchChangeState)=>{
+const fetchLyricsOVH = async (SongSearchChangeState)=>{
     try {
     const songFetch = await fetch (`https://api.lyrics.ovh/v1/${SongSearchChangeState.singername}/${SongSearchChangeState.songname}`)
     const songJson = await songFetch.json();
@@ -12,4 +12,4 @@ const FetchSong = async (SongSearchChangeState)=>{
     }
         
 }
-export default FetchSong
+export default fetchLyricsOVH

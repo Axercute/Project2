@@ -13,7 +13,7 @@ try{
         )
 
     const ResponseInJson = await Response.json()
-    console.log(ResponseInJson.records)
+    console.log("Render Data:",ResponseInJson.records)
     return ResponseInJson.records
     }
 catch(error){
@@ -45,12 +45,43 @@ export const createSong =async (props)=>{
     },
         )
     const ResponseInJson = await Response.json()
-    console.log(ResponseInJson.records)
+    console.log("created update:",ResponseInJson.records)
     return ResponseInJson.records
     }
 catch(error){
     console.error(error)
     return null
 }
+}
 
+
+// Deleting Song
+export const deleteSong =async (props)=>{
+//Actual input
+    try{
+    // First, fetch the song info before deleting
+    const aboutToDeleteResponse = await fetch(`${URL}/${props}`, {
+      headers: {
+        Authorization: `Bearer ${PAT}`,
+        "Content-Type": "application/json",
+      },
+    });
+    const SongAboutToDelete = await aboutToDeleteResponse.json();
+    console.log("About to delete:", SongAboutToDelete);
+
+    const Response = await fetch(`${URL}/${props}`, {
+        method:"DELETE",
+        headers:{Authorization:`Bearer ${PAT}`,
+        "Content-Type": "application/json",}, 
+    },
+        )
+    
+    const ResponseInJson = await Response.json()
+    console.log("Delete complete")
+    return ResponseInJson.records
+    }
+catch(error){
+    console.error(error)
+    return null
+}
 }

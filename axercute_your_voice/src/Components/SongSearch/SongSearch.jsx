@@ -1,12 +1,17 @@
 import "./SongSearch.css"
-// import { useState } from "react"
+import { useState } from "react"
 
-const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchState,handleSubmit2}) => {
+const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchState,handleCreateSong}) => {
+  const [ShowButton,SetShowButton] = useState(false)
 
   return (<>
     <div className="songsearch">
-      <form onSubmit={handleSubmit}>
-
+      <form onSubmit={(event)=>{
+      handleSubmit(event)
+      event.preventDefault();
+      SetShowButton(true);
+      }
+    }>
       <label htmlFor="songname">Song Name</label>
       <input
       id="songname"
@@ -35,9 +40,14 @@ const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchS
     : SongSearchState.lyrics
     }
 </div>
-{SongSearchState.lyrics !== "null" && SongSearchState.lyrics !== "undefined" && SongSearchState.lyrics !=="" &&
+{ShowButton && SongSearchState.lyrics !== "null" && SongSearchState.lyrics !== "undefined" && SongSearchState.lyrics !=="" &&
   (
-  <button style={{ marginTop: "10px" }} onClick={()=>{handleSubmit2(SongSearchState)}}>Give me this song</button>
+  <button style={{ marginTop: "10px" }} onClick={
+    ()=>{handleCreateSong(SongSearchState);
+      SetShowButton(false);
+      window.alert("Song Submitted, please add a new song")
+    }
+    }>Give me this song</button>
   )
   }
 </div>
