@@ -60,7 +60,7 @@ export const deleteSong =async (props)=>{
 //Actual input
     try{
     // First, fetch the song info before deleting
-    const aboutToDeleteResponse = await fetch(`${URL}/${props}`, {
+    const aboutToDeleteResponse = await fetch(`${URL}/${props.songid}`, {
       headers: {
         Authorization: `Bearer ${PAT}`,
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export const deleteSong =async (props)=>{
     const SongAboutToDelete = await aboutToDeleteResponse.json();
     console.log("About to delete:", SongAboutToDelete);
 
-    const Response = await fetch(`${URL}/${props}`, {
+    const Response = await fetch(`${URL}/${props.songid}`, {
         method:"DELETE",
         headers:{Authorization:`Bearer ${PAT}`,
         "Content-Type": "application/json",}, 
@@ -79,6 +79,34 @@ export const deleteSong =async (props)=>{
     const ResponseInJson = await Response.json()
     console.log("Delete complete")
     return ResponseInJson.records
+    }
+catch(error){
+    console.error(error)
+    return null
+}
+}
+
+// Updating Song
+export const updateSong =async (props)=>{
+//Actual input
+    try{
+//Declare variables
+    const SongInput = {
+      fields: {
+        videolink:props.videolink
+      }
+}
+    const Response = await fetch(`${URL}/${props.songid}`, {
+        method:"PATCH",
+        headers:{Authorization:`Bearer ${PAT}`,
+        "Content-Type": "application/json",}, 
+        body:JSON.stringify(SongInput)
+    },
+        )
+    
+    const ResponseInJson = await Response.json()
+    console.log("Update complete",ResponseInJson)
+    return ResponseInJson
     }
 catch(error){
     console.error(error)

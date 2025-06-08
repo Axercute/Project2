@@ -8,7 +8,7 @@ import ContactUs from './Components/ContactUs/ContactUs'
 import SongSearch from './Components/SongSearch/SongSearch'
 import SingerLogin from './Components/SingerLogin/SingerLogin'
 import fetchLyricsOVH from './FetchLyricsOVH'
-import {showSong,createSong,deleteSong} from './SongStorage'
+import {showSong,createSong,deleteSong,updateSong} from './SongStorage'
 import SongDetail from './Components/SongDetail/SongDetail'
 
 function App() {
@@ -25,13 +25,11 @@ const [SongSearchState, SetSongSearchState] = useState({songname:"",singername: 
 const [SongList,SetSongList]=useState([])
 
 //manage change
-const [SongSearchChangeState,SetSongSearchChangeState]=useState({songname:"",singername:"",lyrics:""});
+const [SongSearchChangeState,SetSongSearchChangeState]=useState({songname:"",singername:"",lyrics:"",videolink:"",songid:""});
 const handleChange=(event)=>{
   SetSongSearchChangeState((prevValue)=>({...prevValue,[event.target.name]:event.target.value}))
   console.log("handleChange",SongSearchChangeState)
 }
-
-const [SongDeleteState,SetSongDeleteState] = useState();
 
 const handleSubmit= async ()=>{
 
@@ -51,9 +49,15 @@ const handleCreateSong=async (SongSearchState)=>{
   fetchData() //using the render function
   }
 
-const handleDelete = async (renderDetailsId)=>{
-  console.log("value passed for deletion",renderDetailsId)
-  await deleteSong(renderDetailsId)
+const handleDelete = async (deleteDetails)=>{
+  console.log("value passed for deletion",deleteDetails)
+  await deleteSong(deleteDetails)
+  fetchData() //render function
+}
+
+const handleUpdate = async (updateDetails)=>{
+  console.log("value passed for update",updateDetails)
+  await updateSong (updateDetails)
   fetchData() //render function
 }
 
@@ -94,6 +98,10 @@ console.log("SongList updated:", SongList);
       element={<SongDetail
       SongList={SongList}
       handleDelete={handleDelete}
+      handleChange = {handleChange}
+      SongSearchChangeState={SongSearchChangeState}
+      SetSongSearchChangeState={SetSongSearchChangeState}
+      handleUpdate={handleUpdate}
       />
       }
       />
@@ -110,3 +118,4 @@ console.log("SongList updated:", SongList);
 }
 
 export default App
+
