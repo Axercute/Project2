@@ -10,7 +10,6 @@ const SingerLogin =({SongList})=>{
 const navigate = useNavigate();
     
     return (<>
-    <h1>Picked songs</h1>
     {SongList.map((element,index)=>(
         <div key={index} className="SingerLogin">
             <div className="song-name">{element.fields.songname}</div>

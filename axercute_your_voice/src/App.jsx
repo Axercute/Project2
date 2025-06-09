@@ -57,6 +57,7 @@ const handleDelete = async (deleteDetails)=>{
 
 const handleUpdate = async (updateDetails)=>{
   console.log("value passed for update",updateDetails)
+  SetSongSearchChangeState({ songid:"",videolink:"" })
   await updateSong (updateDetails)
   fetchData() //render function
 }
@@ -71,7 +72,6 @@ console.log("SongList updated:", SongList);
   return (
     <>
     <NavBar></NavBar>
-    <main className="app-content">
     <Routes>
 
       <Route path ="/"
@@ -112,7 +112,6 @@ console.log("SongList updated:", SongList);
       />
 
     </Routes>
-    </main>
     </>
   )
 }
