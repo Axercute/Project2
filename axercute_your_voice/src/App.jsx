@@ -5,11 +5,11 @@ import {Routes,Route} from "react-router"
 import NavBar from './Components/NavBar/NavBar'
 import HomePage from './Components/HomePage/HomePage'
 import ContactUs from './Components/ContactUs/ContactUs'
-import SongSearch from './Components/SongSearch/SongSearch'
-import SingerLogin from './Components/SingerLogin/SingerLogin'
+import SongSearch from './Components/SongSearch'
+import SingerLogin from './Components/SingerLogin'
 import fetchLyricsOVH from './FetchLyricsOVH'
 import {showSong,createSong,deleteSong,updateSong} from './SongStorage'
-import SongDetail from './Components/SongDetail/SongDetail'
+import SongDetail from './Components/SongDetail'
 
 function App() {
 //render the songList first
@@ -32,9 +32,9 @@ const handleChange=(event)=>{
 }
 
 const handleSubmit= async ()=>{
-
-  const FetchLyrics = await fetchLyricsOVH (SongSearchChangeState)
-  SetSongSearchChangeState({songname:"",singername:"",lyrics:""})
+  console.log(SongSearchChangeState)
+  const FetchLyrics = await fetchLyricsOVH (SongSearchChangeState) //Turn it from json to const object
+  SetSongSearchChangeState({songname:"",singername:"",lyrics:"",videolink:""})
   console.log(FetchLyrics)
   SetSongSearchState({
     songname:`${SongSearchChangeState.songname}`,
@@ -71,6 +71,7 @@ console.log("SongList updated:", SongList);
 
   return (
     <>
+    <main class="pt-15">
     <NavBar></NavBar>
     <Routes>
 
@@ -112,6 +113,7 @@ console.log("SongList updated:", SongList);
       />
 
     </Routes>
+    </main>
     </>
   )
 }

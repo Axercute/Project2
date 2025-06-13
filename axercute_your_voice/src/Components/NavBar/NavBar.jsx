@@ -4,7 +4,7 @@ import "./NavBar.css"
 const NavBar = () => {
 
     return (<>
-    <nav>
+    <nav className="">
     <ul>
     <li>
     <Link path to ="/">

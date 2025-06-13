@@ -1,7 +1,8 @@
 
-const fetchLyricsOVH = async (SongSearchChangeState)=>{
+const fetchLyricsOVH = async (props)=>{
     try {
-    const songFetch = await fetch (`https://api.lyrics.ovh/v1/${SongSearchChangeState.singername}/${SongSearchChangeState.songname}`)
+    const songFetch = await fetch (`https://api.lyrics.ovh/v1/${props.singername}/${props.songname}`)
+    console.log(songFetch)
     const songJson = await songFetch.json();
     console.log(songJson.lyrics);
     return songJson.lyrics
