@@ -43,7 +43,7 @@ const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchS
 
 {/* lyrics */}
 <div style={{ whiteSpace: "pre-wrap" }} className="bg-blue-400 w-1/3 mx-auto border-2 my-2 h-110 rounded-3xl overflow-scroll">
-  {SongSearchState.lyrics === "null" ||SongSearchState.lyrics === "undefined"? "Song not found"
+  {SongSearchState.lyrics === "null" || SongSearchState.lyrics === "undefined"? "Song not found"
     : SongSearchState.lyrics
     }
 </div>
