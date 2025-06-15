@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchState,handleCreateSong}) => {
+const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchState,handleCreateSong,Loading}) => {
   const [ShowButton,SetShowButton] = useState(false)
 
   //Renderino
@@ -11,10 +11,11 @@ const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchS
   SetShowButton(true);
   }
   }
-  className="bg-amber-300 w-1/4 h-30 mx-auto border-2 rounded-3xl flex flex-row flex-wrap justify-center"
+  className="bg-gradient-to-br from-fuchsia-950 to-amber-700 w-1/3 mx-auto border-2 rounded-3xl flex-wrap flex-center flex-col"
   >
 
-  <label htmlFor="songname" className="w-28 flex">Song Name:</label>
+<div className="flex flex-row">
+  <label htmlFor="songname" className="w-28 text-outline">Song Name:</label>
   <input
   id="songname"
   name="songname"
@@ -22,11 +23,11 @@ const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchS
   placeholder="Billie Jean"
   value={SongSearchChangeState.songname}
   onChange={handleChange}
-  className="bg-amber-50 rounded flex mb-2"
   />
+</div>
 
-
-  <label htmlFor="singername" className="w-28 flex">Singer Name:</label>
+<div className="flex flex-row">
+  <label htmlFor="singername" className="w-28 text-outline">Singer Name:</label>
   <input
   id="singername"
   name="singername"
@@ -34,31 +35,34 @@ const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchS
   placeholder="Michael Jackson"
   value={SongSearchChangeState.singername}
   onChange={handleChange}
-  className="bg-amber-50 rounded flex"
   />
+</div>
 
-
-  <button type="submit">Get my lyrics</button>
-  </form>
-
+  <button type="submit" className="flex">Get my lyrics</button>
+  
 {/* lyrics */}
-<div style={{ whiteSpace: "pre-wrap" }} className="bg-blue-400 w-1/3 mx-auto border-2 my-2 h-110 rounded-3xl overflow-scroll">
-  {SongSearchState.lyrics === "null" || SongSearchState.lyrics === "undefined"? "Song not found"
+<div
+className={`bg-gradient-to-br from-green-400 to-fuchsia-800 w-10/12 border-2 h-125 rounded-3xl overflow-y-auto font-semibold whitespace-pre-wrap ${Loading&&`flex-center`}`}>
+  {Loading? (<div class="lds-dual-ring"></div>):
+  SongSearchState.lyrics === "null" || SongSearchState.lyrics === "undefined"? "Song not found"
     : SongSearchState.lyrics
     }
 </div>
 
-{ShowButton && SongSearchState.lyrics !== "null" && SongSearchState.lyrics !== "undefined" && SongSearchState.lyrics !=="" &&
+{ShowButton && SongSearchState.lyrics !== "null" && SongSearchState.lyrics !== "undefined" && 
+SongSearchState.lyrics !=="" && !Loading &&
   (
-  <button style={{ marginTop: "10px" }} onClick={
+  <button onClick={
     ()=>{handleCreateSong(SongSearchState);
       SetShowButton(false);
       window.alert("Song Submitted, please add a new song")
     }
-    }>Give me this song</button>
+    }
+    className="w-1/2"
+    >Give me this song</button>
   )
   }
-  
+  </form>
 
   </>)
 }

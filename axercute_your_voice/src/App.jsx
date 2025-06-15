@@ -23,6 +23,7 @@ useEffect(() => {fetchData()}, []);
 
 const [SongSearchState, SetSongSearchState] = useState({songname:"",singername: "",lyrics: ""});
 const [SongList,SetSongList]=useState([])
+const [Loading,SetLoading]=useState(false)
 
 //manage change
 const [SongSearchChangeState,SetSongSearchChangeState]=useState({songname:"",singername:"",lyrics:"",videolink:"",songid:""});
@@ -33,7 +34,7 @@ const handleChange=(event)=>{
 
 const handleSubmit= async ()=>{
   console.log(SongSearchChangeState)
-  const FetchLyrics = await fetchLyricsOVH (SongSearchChangeState) //Turn it from json to const object
+  const FetchLyrics = await fetchLyricsOVH (SongSearchChangeState,SetLoading) //Turn it from json to const object
   SetSongSearchChangeState({songname:"",singername:"",lyrics:"",videolink:""})
   console.log(FetchLyrics)
   SetSongSearchState({
@@ -86,6 +87,7 @@ console.log("SongList updated:", SongList);
       handleSubmit={handleSubmit}
       SongSearchState={SongSearchState}
       handleCreateSong={handleCreateSong}
+      Loading={Loading}
       />}
       />
 
