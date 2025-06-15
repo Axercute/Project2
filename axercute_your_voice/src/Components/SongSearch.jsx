@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchState,handleCreateSong,Loading}) => {
   const [ShowButton,SetShowButton] = useState(false)
+  const [ShowAlert,SetShowAlert]=useState(true)
 
   //Renderino
   return (<>
@@ -42,9 +43,10 @@ const SongSearch = ({SongSearchChangeState,handleChange,handleSubmit,SongSearchS
   
 {/* lyrics */}
 <div
-className={`bg-gradient-to-br from-green-400 to-fuchsia-800 w-10/12 border-2 h-125 rounded-3xl overflow-y-auto font-semibold whitespace-pre-wrap ${Loading&&`flex-center`}`}>
+className={`bg-gradient-to-br from-green-400 to-fuchsia-800 w-10/12 border-2 h-125 rounded-3xl 
+overflow-y-auto font-semibold whitespace-pre-wrap ${Loading &&`flex-center`}`}>
   {Loading? (<div class="lds-dual-ring"></div>):
-  SongSearchState.lyrics === "null" || SongSearchState.lyrics === "undefined"? "Song not found"
+  SongSearchState.lyrics === "null" || SongSearchState.lyrics === `undefined`  ?"Song not found"
     : SongSearchState.lyrics
     }
 </div>
@@ -64,6 +66,7 @@ SongSearchState.lyrics !=="" && !Loading &&
   }
   </form>
 
+  {ShowAlert && (<div className="alert-button">hi</div>)}
   </>)
 }
 

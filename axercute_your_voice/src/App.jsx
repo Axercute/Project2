@@ -72,7 +72,7 @@ console.log("SongList updated:", SongList);
 
   return (
     <>
-    <main class="pt-15">
+    <main className="pt-15 backgroundfull relative">
     <NavBar></NavBar>
     <Routes>
 
