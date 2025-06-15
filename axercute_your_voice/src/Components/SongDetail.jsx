@@ -30,11 +30,11 @@ useEffect(() => {
   <div className="flex justify-center items-center flex-col">
     <iframe 
       className="h-70 w-1/3"
-      src={
-        renderDetails.fields.videolink.includes("watch?v=")
-          ? renderDetails.fields.videolink.replace("watch?v=", "embed/")
-          : renderDetails.fields.videolink
-      }
+  src={
+    renderDetails.fields.videolink.includes("watch?v=")
+      ? `https://www.youtube.com/embed/${renderDetails.fields.videolink.split("v=")[1].split("&")[0]}`
+      : renderDetails.fields.videolink
+  }
       title="Video"
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

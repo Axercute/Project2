@@ -57,7 +57,7 @@ SongSearchState.lyrics !=="" && !Loading &&
   <button onClick={
     ()=>{handleCreateSong(SongSearchState);
       SetShowButton(false);
-      window.alert("Song Submitted, please add a new song")
+      SetShowAlert(true)
     }
     }
     className="w-1/2"
@@ -66,7 +66,9 @@ SongSearchState.lyrics !=="" && !Loading &&
   }
   </form>
 
-  {ShowAlert && (<div className="alert-button">hi</div>)}
+  {ShowAlert && (<div className="alert-button">Song Submitted, please pick a new song
+    <button onClick={()=>{SetShowAlert(false)}}>Understood</button>
+  </div>)}
   </>)
 }
 
