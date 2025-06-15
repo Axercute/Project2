@@ -60,7 +60,7 @@ const SongDetail = ({
         <h3 className="text-center text-2xl text-pink-400 font-mono font-extrabold">
           {renderDetails.fields.songname}
         </h3>
-        <div className="text-2xl text-red-200 font-semibold">
+        <div className="font-semibold text-2xl text-red-200">
           {renderDetails.fields.singername}
         </div>
       </div>
