@@ -4,7 +4,10 @@ const ContactUs = () => {
   return (
     <div className="contact-page">
       <h1>📬 Get in Touch</h1>
-      <p>We’d love to hear from you — whether you're a fan, a singer, or just curious about Axercute your voice</p>
+      <p>
+        We’d love to hear from you — whether you're a fan, a singer, or just
+        curious about Axercute your voice
+      </p>
 
       <div className="contact-info">
         <div className="contact-block">
@@ -25,9 +28,17 @@ const ContactUs = () => {
         <div className="contact-block">
           <h2>📱 Follow Us</h2>
           <p>
-            <a href="https://twitter.com/" target="_blank" rel="noreferrer">Twitter</a> |{" "}
-            <a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a> |{" "}
-            <a href="https://facebook.com/" target="_blank" rel="noreferrer">Facebook</a>
+            <a href="https://twitter.com/" target="_blank" rel="noreferrer">
+              Twitter
+            </a>{" "}
+            |{" "}
+            <a href="https://instagram.com/" target="_blank" rel="noreferrer">
+              Instagram
+            </a>{" "}
+            |{" "}
+            <a href="https://facebook.com/" target="_blank" rel="noreferrer">
+              Facebook
+            </a>
           </p>
         </div>
       </div>

@@ -1,8 +1,9 @@
 /* Reset defaults */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 /* Full-width, top-fixed nav */
@@ -38,19 +39,23 @@ nav a {
   color: white;
   text-decoration: none;
   position: relative;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 /* Animated underline */
 nav a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 10px;
   left: 50%;
   width: 0%;
   height: 2px;
   background-color: white;
-  transition: width 0.3s ease, left 0.3s ease;
+  transition:
+    width 0.3s ease,
+    left 0.3s ease;
   transform: translateX(-50%);
 }
 

@@ -1,12 +1,12 @@
 .contact-page {
-   padding-top: 80px; /* Adjust based on navbar height */
+  padding-top: 80px; /* Adjust based on navbar height */
   max-width: 800px;
   margin: 4rem auto;
   padding: 2rem;
   background-color: #fff;
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   text-align: center;
 }
 
