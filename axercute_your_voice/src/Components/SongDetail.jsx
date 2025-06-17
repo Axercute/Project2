@@ -35,7 +35,7 @@ const SongDetail = ({
     <>
       {/* Chat GBTed */}
       {renderDetails.fields.videolink ? (
-        <div>
+        <div className="flex-center">
           <iframe
             className="h-70 w-1/3"
             src={
@@ -56,21 +56,19 @@ const SongDetail = ({
       )}
 
       {/* Song Title and Artist */}
-      <div className="bg-violet-500 w-1/3 border-2 mx-auto rounded-2xl my-1">
-        <h3 className="text-center text-2xl text-pink-400 font-mono font-extrabold">
+      <div className="mx-auto w-1/3 rounded-2xl border-2 
+      bg-gradient-to-r from-amber-500 to-red-500 my-1 pb-2 capitalize">
+        <div className="text-4xl font-extrabold text-pink-400 text-outline capitalize">
           {renderDetails.fields.songname}
-        </h3>
-        <div className="font-semibold text-2xl text-red-200">
-          {renderDetails.fields.singername}
+        </div>
+        <div className="text-2xl font-semibold text-orange-50 text-outline">
+          by {renderDetails.fields.singername}
         </div>
       </div>
 
       {/* Lyrics */}
-      <div className=" bg-green-500 w-1/3 border-2 mx-auto rounded-4xl mb-10 overflow-scroll h-[40svh]">
-        <div
-          className="text-center text-1xl text-grey-200 font-medium"
-          style={{ whiteSpace: "pre-wrap" }}
-        >
+      <div className="mx-auto h-75 w-1/3 overflow-y-auto rounded-4xl border-2 bg-gradient-to-br from-green-400 to-fuchsia-800">
+        <div className="text-2sm text-neutral-900 font-mono whitespace-pre-wrap">
           {renderDetails.fields.lyrics}
         </div>
       </div>
@@ -81,9 +79,10 @@ const SongDetail = ({
           event.preventDefault();
           handleUpdate(SongSearchChangeState);
         }}
-        className="bg-amber-300 w-2/5 h-15 mx-auto border-2 rounded-3xl flex flex-row flex-wrap justify-center items-center"
+        className="mx-auto flex-center h-15 w-1/2 flex-row rounded-3xl border-2 mt-1
+         bg-gradient-to-r from-amber-500 to-red-500"
       >
-        <label htmlFor="videolink" className="mr-1">
+        <label htmlFor="videolink" className="mr-1 text-black">
           Video Link:
         </label>
         <input
@@ -93,19 +92,21 @@ const SongDetail = ({
           value={SongSearchChangeState.videolink}
           placeholder="www.youtube.com/videolink"
           onChange={handleChange}
-          className="bg-amber-50 rounded flex w-100"
+          className="w-1/2 focus:bg-emerald-400"
         />
         <button type="submit">Submit Video</button>
-      </form>
 
-      <button
+        <button
         onClick={() => {
           handleDelete(SongSearchChangeState);
           navigate("/singerLogin");
         }}
+        className="flex-col bg-gradient-to-r from-white to-amber-300"
       >
         Delete This Song
       </button>
+
+      </form>
     </>
   );
 };

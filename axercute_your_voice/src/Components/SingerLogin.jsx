@@ -12,19 +12,19 @@ const SingerLogin = ({ SongList }) => {
       {SongList.map((element, index) => (
         <div
           key={index}
-          className="w-1/4 h-40 mx-auto border-4 rounded-3xl flex flex-col flex-wrap justify-center my-2 bg-amber-300"
+          className="mx-auto my-2 flex h-40 w-1/4 flex-col flex-wrap justify-center rounded-3xl border-4 bg-amber-300"
         >
-          <div className=" font-extrabold text-4xl text-pink-950 font-mono">
+          <div className="font-mono text-4xl font-extrabold text-indigo-600 text-outline capitalize">
             {element.fields.songname}
           </div>
-          <div className=" text-fuchsia-700 text-3xl font-serif ">
+          <div className="font-bold text-2xl text-emerald-500 text-outline capitalize"> 
             {element.fields.singername}
           </div>
           <button
             onClick={() => {
               navigate(`/singerLogin/${element.fields.songname}`);
             }}
-            className="bg-gradient-to-br         from-orange-950 to-yellow-700"
+            className="bg-amber-800 hover:bg-amber-950 text-white"
           >
             View Whole Song
           </button>

@@ -208,7 +208,7 @@ return SongSearchState;
 }
 <div
   style={{ whiteSpace: "pre-wrap" }}
-  className="bg-blue-400 w-1/3 mx-auto border-2 my-2 h-110 rounded-3xl overflow-scroll"
+  className="mx-auto my-2 h-110 w-1/3 overflow-scroll rounded-3xl border-2 bg-blue-400"
 >
   {SongSearchState.lyrics === "null" || SongSearchState.lyrics === "undefined"
     ? "Song not found"

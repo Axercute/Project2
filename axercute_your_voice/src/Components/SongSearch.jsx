@@ -20,10 +20,11 @@ const SongSearch = ({
           event.preventDefault();
           SetShowButton(true);
         }}
-        className="bg-gradient-to-br from-fuchsia-950 to-amber-700 w-1/3 mx-auto border-2 rounded-3xl flex-wrap flex-center flex-col"
+        className="flex-center mx-auto w-1/3 flex-col flex-wrap rounded-3xl border-2
+         bg-gradient-to-br from-fuchsia-950 to-amber-700 mt-3"
       >
-        <div className="flex flex-row">
-          <label htmlFor="songname" className="w-28 text-outline">
+        <div className="flex flex-row my-2">
+          <label htmlFor="songname" className="text-outline w-28">
             Song Name:
           </label>
           <input
@@ -37,7 +38,7 @@ const SongSearch = ({
         </div>
 
         <div className="flex flex-row">
-          <label htmlFor="singername" className="w-28 text-outline">
+          <label htmlFor="singername" className="text-outline w-28">
             Singer Name:
           </label>
           <input
@@ -56,8 +57,7 @@ const SongSearch = ({
 
         {/* lyrics */}
         <div
-          className={`bg-gradient-to-br from-green-400 to-fuchsia-800 w-10/12 border-2 h-125 rounded-3xl 
-overflow-y-auto font-semibold whitespace-pre-wrap ${Loading && `flex-center`}`}
+          className={`h-120 w-10/12 overflow-y-auto rounded-3xl border-2 bg-gradient-to-br from-green-400 to-fuchsia-800 font-semibold whitespace-pre-wrap ${Loading && `flex-center`}`}
         >
           {Loading ? (
             <div class="lds-dual-ring"></div>

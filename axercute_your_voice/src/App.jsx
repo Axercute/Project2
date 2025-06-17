@@ -2,7 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router";
 
-import NavBar from "./Components/NavBar/NavBar";
+import NavBar from "./Components/NavBar";
 import HomePage from "./Components/HomePage/HomePage";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import SongSearch from "./Components/SongSearch";
@@ -96,7 +96,7 @@ function App() {
 
   return (
     <>
-      <main className="pt-15 backgroundfull relative">
+      <main className="backgroundfull">
         <NavBar></NavBar>
         <Routes>
           <Route path="/" element={<HomePage />} />
